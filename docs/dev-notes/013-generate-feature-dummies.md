@@ -67,20 +67,30 @@ export class DummiesModule {}
 
 ### 5. dummies.resolver.ts を修正
 
-* change method name: findAll() => samples()
-* change method name: findOne() => sample()
-* change args, types as generated-db-types names
+詳細は下記を参照
+
+`libs/api/feature-dummies/src/lib/dummies.resolver.ts`
 
 ### 6. dummies.service.ts を修正
 
-* add di PrismaService
-* change methods to use PrismaService
-* change args, types as generated-db-types names
+詳細は下記を参照
 
-> If you need relation to get another table data, not forget to use include!
+`libs/api/feature-dummies/src/lib/dummies.service.ts`
 
-### add SampleModule to AppModule
+> 別テーブルとリレーションを利用してデータ操作する場合、`include`を利用することに注意
 
-add SampleModule to AppModule
+### 7. AppModule に DummiesModule を追加
 
-after that, run Nestjs and check runngin Graphql!
+`apps/api/src/app/app.module.ts`
+
+```ts
+@Module({
+  imports: [
+    ...
+    // ---- Graphql ---- //
+    DummiesModule
+  ],
+  controllers: [AppController],
+  providers: [AppService]
+})
+```
