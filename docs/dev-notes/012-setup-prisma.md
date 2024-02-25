@@ -13,8 +13,8 @@ After that, delete `api-data-access-db.ts` file.
 ### 2. パッケージをインストール
 
 ```bash
-npm i -D prisma env-cmd prisma-nestjs-graphql
-npm i @prisma/client @nestjs/graphql
+npm i -D prisma env-cmd prisma-nestjs-graphql 
+npm i @prisma/client @nestjs/graphql graphql-type-json
 ```
 
 ### 3. schema.prisma を作成

@@ -17,3 +17,5 @@ npx nx generate @nx/js:library shared-config --directory=libs/shared/config --im
 ### 3. env.ts を作成
 
  `libs/shared/config/src/lib/env.ts`
+
+ > .env に値が追加される度に更新していく。
