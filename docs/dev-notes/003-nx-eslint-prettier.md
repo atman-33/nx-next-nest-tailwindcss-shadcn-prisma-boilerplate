@@ -39,3 +39,15 @@
       }
       ...
 ```
+
+### 2. prettier にルールを追加
+
+ `.prettierrc`
+
+```json
+{
+  "semi": true,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "printWidth": 100
+}
