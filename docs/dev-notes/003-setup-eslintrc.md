@@ -1,19 +1,11 @@
-{
-  "root": true,
-  "ignorePatterns": [
-    "**/*"
-  ],
-  "plugins": [
-    "@nx"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx",
-        "*.js",
-        "*.jsx"
-      ],
+## ステップ
+
+### 1. eslint にプロジェクト間の参照ルールを追加
+
+`.eslintrc.json`
+
+```json
+      ...,
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
@@ -45,38 +37,5 @@
           }
         ]
       }
-    },
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "extends": [
-        "plugin:@nx/typescript"
-      ],
-      "rules": {}
-    },
-    {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
-      "extends": [
-        "plugin:@nx/javascript"
-      ],
-      "rules": {}
-    },
-    {
-      "files": [
-        "*.spec.ts",
-        "*.spec.tsx",
-        "*.spec.js",
-        "*.spec.jsx"
-      ],
-      "env": {
-        "jest": true
-      },
-      "rules": {}
-    }
-  ]
-}
+      ...
+```
