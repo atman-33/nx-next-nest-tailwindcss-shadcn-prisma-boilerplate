@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@libs/api/feature-dummies": ["libs/api/feature-dummies/src/index.ts"],
       "@libs/api/prisma/data-access-db": ["libs/api/prisma/data-access-db/src/index.ts"]
     }
   },

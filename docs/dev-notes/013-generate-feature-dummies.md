@@ -24,56 +24,54 @@ model Dummy {
 }
 ```
 
-### feature-dummy を生成
+### 2. feature-dummy を生成
 
 ```bash
-npx nx generate @nx/js:library api-feature-dummy --directory=libs/api/feature-dummy --importPath=@libs/api/feature-dummy --tags=scope:api --bundler=swc
+npx nx generate @nx/js:library api-feature-dummies --directory=libs/api/feature-dummies --importPath=@libs/api/feature-dummies --tags=scope:api --bundler=swc
 
 ✔ Which unit test runner would you like to use? · jest
 ```
 
-### delete files
+下記ファイルは削除しておく。
 
-* `api-feature-user.spec.ts`
-* `api-feature-user.ts`
+- `api-feature-dummies.spec.ts`
+- `api-feature-dummies.ts`
 
-### generate resolver
+### 3. resolver を生成
 
 ```bash
-nx g @nrwl/nest:resource --project=api-feature-sample-prisma --directory=lib --type="graphql-code-first" --crud --name sample-todos
+nx g @nrwl/nest:resource --directory=libs/api/feature-dummies/src/lib --type="graphql-code-first" --crud --name dummies
 ```
 
-### arange
+作成されたファイルを整理
 
-- move to generated files to lib folder
-- delete dto folder
-- delete entities folder
-- fix export in index.ts
+- .spec ファイルを削除
+- entities フォルダを削除して、models フォルダを代わりに作成
+- index.ts の export で、Module クラスを指定
 
 ```ts
-export * from './lib/sample.module';
+export { DummiesModule } from './lib/dummies.module';
 ```
 
-### update sample.module.ts
+### 4. dummies.module.ts を修正
 
-add PrismaModule to sample.module.ts
+PrismaModule を追加
 
 ```ts
-...
 @Module({
-  providers: [SampleResolver, SampleService],
+  providers: [DummiesResolver, DummiesService],
   imports: [PrismaModule]
 })
-...
+export class DummiesModule {}
 ```
 
-### update sample.resolver.ts
+### 5. dummies.resolver.ts を修正
 
 * change method name: findAll() => samples()
 * change method name: findOne() => sample()
 * change args, types as generated-db-types names
 
-### update sample.service.ts
+### 6. dummies.service.ts を修正
 
 * add di PrismaService
 * change methods to use PrismaService

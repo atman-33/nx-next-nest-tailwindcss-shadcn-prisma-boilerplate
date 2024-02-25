@@ -1,0 +1,1 @@
+export { DeleteOneDummyArgs as DeleteDummyInput } from '@libs/api/prisma/data-access-db';

@@ -1,0 +1,1 @@
+export { CreateOneDummyArgs as CreateDummyInput } from '@libs/api/prisma/data-access-db';

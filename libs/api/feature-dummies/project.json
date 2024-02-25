@@ -1,0 +1,19 @@
+{
+  "name": "api-feature-dummies",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/feature-dummies/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/feature-dummies",
+        "main": "libs/api/feature-dummies/src/index.ts",
+        "tsConfig": "libs/api/feature-dummies/tsconfig.lib.json",
+        "assets": ["libs/api/feature-dummies/*.md"]
+      }
+    }
+  },
+  "tags": ["scope:api"]
+}

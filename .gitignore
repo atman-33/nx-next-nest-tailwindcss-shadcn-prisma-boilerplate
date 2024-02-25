@@ -46,3 +46,6 @@ out
 
 # env
 .env
+
+# schema-codegen generated files
+/tools/schema-codegen/@generated
