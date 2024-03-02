@@ -1,31 +1,27 @@
+import fs from 'fs';
+import path from 'path';
+import { Model, parsePrismaSchema } from './lib/parse-prisma-schema';
+
 // ---- Constants ---- //
 const FOLDER_PATH = './libs/api/prisma/data-access-db/src/lib';
 const FILE_NAME = 'schema.prisma';
 // ------------------- //
 
 // ------------------------------------------------------------------------------
-// 1. Load modules
+// 1. Functions
 // ------------------------------------------------------------------------------
-const fs = require('fs');
-const path = require('path');
-const parsePrismaSchema = require('./lib/parse-prisma-schema.js');
-// const { toKebabCase, toCamelcase, pascalToCamel } = require('./lib/utils.js');
-
-// ------------------------------------------------------------------------------
-// 2. Functions
-// ------------------------------------------------------------------------------
-const readFile = (filePath) => {
+const readFile = (filePath: string) => {
   return fs.readFileSync(filePath, 'utf-8');
 };
 
-const createFile = (filePath, fileContent) => {
+const createFile = (filePath: string, fileContent: string) => {
   if (!fs.existsSync(filePath)) {
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
   }
   fs.writeFileSync(path.join(filePath), fileContent, 'utf-8');
 };
 
-const replaceFile = (fileContent, model) => {
+const replaceFile = (fileContent: string, model: Model) => {
   fileContent = fileContent.replace(/__model__/g, model.model);
   fileContent = fileContent.replace(/__model_plural__/g, model.plural);
   fileContent = fileContent.replace(/__model_plural_kebab__/g, model.pluralKebab);
@@ -36,7 +32,7 @@ const replaceFile = (fileContent, model) => {
 };
 
 // ------------------------------------------------------------------------------
-// 3. Main
+// 2. Main
 // ------------------------------------------------------------------------------
 const filePath = path.join(FOLDER_PATH, FILE_NAME);
 const schemaContent = readFile(filePath);

@@ -1,7 +1,21 @@
-const pluralize = require('./inflector.js');
-const { toKebabCase, pascalToCamel } = require('./utils.js');
+import { pluralize } from './inflector.import';
+import { pascalToCamel, toKebabCase } from './utils';
 
-const generateModelJson = (models) => {
+export type Model = {
+  model: string;
+  plural: string;
+  kebab: string;
+  camel: string;
+  pluralKebab: string;
+  pluralCamel: string;
+  columns: {
+    name: string;
+    type: string;
+    key: string;
+  }[];
+};
+
+const generateModelJson = (models: Model[]) => {
   return models.map((model) => {
     return {
       model: model.model,
@@ -19,9 +33,9 @@ const generateModelJson = (models) => {
   });
 };
 
-const parsePrismaSchema = (schemaContent) => {
-  const models = [];
-  let currentModel = null;
+const parsePrismaSchema = (schemaContent: string) => {
+  const models: Model[] = [];
+  let currentModel: Model | null = null;
 
   // Split the schema content into lines
   const lines = schemaContent.split('\n').filter((line) => !line.trim().startsWith('//'));
@@ -63,7 +77,7 @@ const parsePrismaSchema = (schemaContent) => {
         // Set the key value based on whether the line contains the @id annotation
         const key = idMatch ? 1 : 0;
         // Add the column object to the current model's columns array
-        currentModel.columns.push({ name: columnName, type, key });
+        currentModel.columns.push({ name: columnName, type, key: key.toString() });
       }
     }
   });
@@ -76,4 +90,4 @@ const parsePrismaSchema = (schemaContent) => {
   return generateModelJson(models);
 };
 
-module.exports = parsePrismaSchema;
+export { parsePrismaSchema };

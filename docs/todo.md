@@ -1,0 +1,7 @@
+- [x] 開発環境用のMongo DB構築
+- [x] Prisma セットアップ
+- [x] Graphql セットアップ
+- [ ] schema-codegen を ts に変更
+- [ ] shadcn-ui セットアップ
+- [ ] recoil セットアップ
+- [ ] graphql x recoil のサンプル画面作成

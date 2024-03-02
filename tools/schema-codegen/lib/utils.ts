@@ -3,7 +3,7 @@
  * @param {string} str 変換前の文字列
  * @return {string} 変換された文字列を返す
  */
-var toKebabCase = (str) => {
+const toKebabCase = (str: string) => {
   if (typeof str !== 'string') return str;
 
   str = str.replace(/^ *?[A-Z]/, function (allStr) {
@@ -22,7 +22,7 @@ var toKebabCase = (str) => {
  * @param {boolean} [upper] 文字列の先頭も大文字にするかどうか
  * @return {string} 変換された文字列を返す
  */
-var toCamelcase = (str, upper) => {
+const toCamelcase = (str: string, upper: boolean) => {
   if (typeof str !== 'string') return str;
 
   var strs = str.split(/[-_ ]+/),
@@ -47,9 +47,9 @@ var toCamelcase = (str, upper) => {
   return str;
 };
 
-var pascalToCamel = (str) => {
+const pascalToCamel = (str: string) => {
   // パスカルケースをキャメルケースに変換
   return str.charAt(0).toLowerCase() + str.slice(1);
 };
 
-module.exports = { toKebabCase, toCamelcase, pascalToCamel };
+export { pascalToCamel, toCamelcase, toKebabCase };
