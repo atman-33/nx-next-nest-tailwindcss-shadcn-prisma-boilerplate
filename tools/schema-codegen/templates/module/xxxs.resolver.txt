@@ -1,11 +1,11 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { Create__model__Input } from './dto/create-__model_kebab__-input.dto';
-import { Delete__model__Input } from './dto/delete-__model_kebab__-input.dto';
-import { Get__model__Args } from './dto/get-__model_kebab__-args.dto';
-import { Update__model__Input } from './dto/update-__model_kebab__-input.dto';
-import { __model__ } from './models/__model_kebab__.model';
+import { Get__model__Args } from './dto/args/get-__model_kebab__-args.dto';
+import { Create__model__Input } from './dto/input/create-__model_kebab__-input.dto';
+import { Delete__model__Input } from './dto/input/delete-__model_kebab__-input.dto';
+import { Update__model__Input } from './dto/input/update-__model_kebab__-input.dto';
 import { __model_plural__Service } from './__model_plural_kebab__.service';
+import { __model__ } from './models/__model_kebab__.model';
 
 @Resolver(() => __model__)
 export class __model_plural__Resolver {

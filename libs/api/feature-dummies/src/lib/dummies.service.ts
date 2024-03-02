@@ -1,9 +1,9 @@
 import { PrismaService } from '@libs/api/prisma/data-access-db';
 import { Injectable } from '@nestjs/common';
-import { CreateDummyInput } from './dto/create-dummy-input.dto';
-import { DeleteDummyInput } from './dto/delete-dummy-input.dto';
-import { GetDummyArgs } from './dto/get-dummy-args.dto';
-import { UpdateDummyInput } from './dto/update-dummy-input.dto';
+import { GetDummyArgs } from './dto/args/get-dummy-args.dto';
+import { CreateDummyInput } from './dto/input/create-dummy-input.dto';
+import { DeleteDummyInput } from './dto//input/delete-dummy-input.dto';
+import { UpdateDummyInput } from './dto/input/update-dummy-input.dto';
 
 @Injectable()
 export class DummiesService {

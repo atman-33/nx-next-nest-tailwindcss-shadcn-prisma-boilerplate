@@ -1,11 +1,11 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { CreateDummyInput } from './dto/create-dummy-input.dto';
-import { DeleteDummyInput } from './dto/delete-dummy-input.dto';
-import { GetDummyArgs } from './dto/get-dummy-args.dto';
-import { UpdateDummyInput } from './dto/update-dummy-input.dto';
-import { Dummy } from './models/dummy.model';
+import { GetDummyArgs } from './dto/args/get-dummy-args.dto';
+import { CreateDummyInput } from './dto/input/create-dummy-input.dto';
+import { DeleteDummyInput } from './dto/input/delete-dummy-input.dto';
+import { UpdateDummyInput } from './dto/input/update-dummy-input.dto';
 import { DummiesService } from './dummies.service';
+import { Dummy } from './models/dummy.model';
 
 @Resolver(() => Dummy)
 export class DummiesResolver {

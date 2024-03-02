@@ -44,19 +44,19 @@ models.forEach((model) => {
   const sources = [
     {
       template: 'templates/dto/get-xxx-args.dto.txt',
-      output: `@generated/${model.kebab}/dto/get-${model.kebab}-args.dto.ts`
+      output: `@generated/${model.kebab}/dto/args/get-${model.kebab}-args.dto.ts`
     },
     {
       template: 'templates/dto/create-xxx-input.dto.txt',
-      output: `@generated/${model.kebab}/dto/create-${model.kebab}-input.dto.ts`
+      output: `@generated/${model.kebab}/dto/input/create-${model.kebab}-input.dto.ts`
     },
     {
       template: 'templates/dto/update-xxx-input.dto.txt',
-      output: `@generated/${model.kebab}/dto/update-${model.kebab}-input.dto.ts`
+      output: `@generated/${model.kebab}/dto/input/update-${model.kebab}-input.dto.ts`
     },
     {
       template: 'templates/dto/delete-xxx-input.dto.txt',
-      output: `@generated/${model.kebab}/dto/delete-${model.kebab}-input.dto.ts`
+      output: `@generated/${model.kebab}/dto/input/delete-${model.kebab}-input.dto.ts`
     },
     {
       template: 'templates/models/xxx.model.txt',
