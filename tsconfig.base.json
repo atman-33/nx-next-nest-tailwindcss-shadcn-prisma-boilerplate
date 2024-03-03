@@ -29,7 +29,13 @@
       ],
       "@libs/shared/config": [
         "libs/shared/config/src/index.ts"
-      ]
+      ],
+      "@libs/web/ui-shadcn": [
+        "libs/web/ui-shadcn/src/index.ts"
+      ],
+      "@libs/web/ui-shadcn/lib/utils": [
+        "libs/web/ui-shadcn/src/lib/utils.ts"
+      ],
     }
   },
   "exclude": [

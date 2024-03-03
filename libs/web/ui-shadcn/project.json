@@ -1,0 +1,8 @@
+{
+  "name": "web-ui-shadcn",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/ui-shadcn/src",
+  "projectType": "library",
+  "tags": ["scope:web"],
+  "targets": {}
+}
