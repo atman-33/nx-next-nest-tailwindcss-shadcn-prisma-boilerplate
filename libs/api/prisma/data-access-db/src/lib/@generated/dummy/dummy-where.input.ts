@@ -3,8 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { IntFilter } from '../prisma/int-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
-import { BytesFilter } from '../prisma/bytes-filter.input';
-import { BigIntFilter } from '../prisma/big-int-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
@@ -30,12 +28,6 @@ export class DummyWhereInput {
 
     @Field(() => FloatFilter, {nullable:true})
     float?: FloatFilter;
-
-    @Field(() => BytesFilter, {nullable:true})
-    bytes?: BytesFilter;
-
-    @Field(() => BigIntFilter, {nullable:true})
-    bigInt?: BigIntFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

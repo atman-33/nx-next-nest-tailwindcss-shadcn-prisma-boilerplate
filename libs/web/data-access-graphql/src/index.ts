@@ -1,1 +1,2 @@
-export * from './lib/__generated__';
+export * from './lib/get-graphql-client';
+export * from './lib/types';

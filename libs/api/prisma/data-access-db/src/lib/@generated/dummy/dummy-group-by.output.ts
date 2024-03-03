@@ -23,12 +23,6 @@ export class DummyGroupBy {
     @Field(() => Float, {nullable:true})
     float?: number;
 
-    @Field(() => String, {nullable:true})
-    bytes?: Buffer;
-
-    @Field(() => String, {nullable:true})
-    bigInt?: bigint | number;
-
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;
 

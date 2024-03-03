@@ -10,7 +10,4 @@ export class DummyAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     float?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    bigInt?: keyof typeof SortOrder;
 }

@@ -1,5 +1,5 @@
-/* eslint-disable */
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { GraphQLClient, RequestOptions } from 'graphql-request';
+import { gql } from 'graphql-request';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -7,7 +7,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-export type DateString = string & { readonly __brand: unique symbol }
+type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -16,7 +16,7 @@ export type Scalars = {
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
   /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
-  DateTime: { input: Date; output: Date; }
+  DateTime: { input: any; output: any; }
 };
 
 export type BigIntFilter = {
@@ -51,23 +51,26 @@ export type DateTimeFilter = {
 };
 
 export type Dummy = {
-  bigInt: Maybe<Scalars['String']['output']>;
-  bytes: Maybe<Scalars['String']['output']>;
+  __typename?: 'Dummy';
+  bigInt?: Maybe<Scalars['String']['output']>;
+  bytes?: Maybe<Scalars['String']['output']>;
   createdAt: Scalars['DateTime']['output'];
-  float: Maybe<Scalars['Float']['output']>;
+  float?: Maybe<Scalars['Float']['output']>;
   id: Scalars['ID']['output'];
-  int: Maybe<Scalars['Int']['output']>;
-  text: Maybe<Scalars['String']['output']>;
+  int?: Maybe<Scalars['Int']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTime']['output'];
 };
 
 export type DummyAvgAggregate = {
-  bigInt: Maybe<Scalars['Float']['output']>;
-  float: Maybe<Scalars['Float']['output']>;
-  int: Maybe<Scalars['Float']['output']>;
+  __typename?: 'DummyAvgAggregate';
+  bigInt?: Maybe<Scalars['Float']['output']>;
+  float?: Maybe<Scalars['Float']['output']>;
+  int?: Maybe<Scalars['Float']['output']>;
 };
 
 export type DummyCountAggregate = {
+  __typename?: 'DummyCountAggregate';
   _all: Scalars['Int']['output'];
   bigInt: Scalars['Int']['output'];
   bytes: Scalars['Int']['output'];
@@ -91,31 +94,34 @@ export type DummyCreateInput = {
 };
 
 export type DummyMaxAggregate = {
-  bigInt: Maybe<Scalars['String']['output']>;
-  bytes: Maybe<Scalars['String']['output']>;
-  createdAt: Maybe<Scalars['DateTime']['output']>;
-  float: Maybe<Scalars['Float']['output']>;
-  id: Maybe<Scalars['String']['output']>;
-  int: Maybe<Scalars['Int']['output']>;
-  text: Maybe<Scalars['String']['output']>;
-  updatedAt: Maybe<Scalars['DateTime']['output']>;
+  __typename?: 'DummyMaxAggregate';
+  bigInt?: Maybe<Scalars['String']['output']>;
+  bytes?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  float?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  int?: Maybe<Scalars['Int']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type DummyMinAggregate = {
-  bigInt: Maybe<Scalars['String']['output']>;
-  bytes: Maybe<Scalars['String']['output']>;
-  createdAt: Maybe<Scalars['DateTime']['output']>;
-  float: Maybe<Scalars['Float']['output']>;
-  id: Maybe<Scalars['String']['output']>;
-  int: Maybe<Scalars['Int']['output']>;
-  text: Maybe<Scalars['String']['output']>;
-  updatedAt: Maybe<Scalars['DateTime']['output']>;
+  __typename?: 'DummyMinAggregate';
+  bigInt?: Maybe<Scalars['String']['output']>;
+  bytes?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  float?: Maybe<Scalars['Float']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  int?: Maybe<Scalars['Int']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type DummySumAggregate = {
-  bigInt: Maybe<Scalars['String']['output']>;
-  float: Maybe<Scalars['Float']['output']>;
-  int: Maybe<Scalars['Int']['output']>;
+  __typename?: 'DummySumAggregate';
+  bigInt?: Maybe<Scalars['String']['output']>;
+  float?: Maybe<Scalars['Float']['output']>;
+  int?: Maybe<Scalars['Int']['output']>;
 };
 
 export type DummyUpdateInput = {
@@ -181,6 +187,7 @@ export type IntFilter = {
 };
 
 export type Mutation = {
+  __typename?: 'Mutation';
   createDummy: Dummy;
   deleteDummy: Dummy;
   updateDummy: Dummy;
@@ -188,7 +195,7 @@ export type Mutation = {
 
 
 export type MutationCreateDummyArgs = {
-  data: InputMaybe<DummyCreateInput>;
+  data?: InputMaybe<DummyCreateInput>;
 };
 
 
@@ -203,6 +210,7 @@ export type MutationUpdateDummyArgs = {
 };
 
 export type Query = {
+  __typename?: 'Query';
   dummies: Array<Dummy>;
   dummy: Dummy;
 };
@@ -212,9 +220,10 @@ export type QueryDummyArgs = {
   where: DummyWhereUniqueInput;
 };
 
-export type QueryMode =
-  | 'default'
-  | 'insensitive';
+export enum QueryMode {
+  Default = 'default',
+  Insensitive = 'insensitive'
+}
 
 export type StringFilter = {
   contains?: InputMaybe<Scalars['String']['input']>;
@@ -232,10 +241,33 @@ export type StringFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type GetDummiesQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetDummiesVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetDummiesQuery = { dummies: Array<{ id: string, text: string | null, createdAt: Date, updatedAt: Date }> };
+export type GetDummies = { __typename?: 'Query', dummies: Array<{ __typename?: 'Dummy', id: string, text?: string | null, createdAt: any, updatedAt: any }> };
 
 
-export const GetDummiesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getDummies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"dummies"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<GetDummiesQuery, GetDummiesQueryVariables>;
+export const GetDummiesDocument = /*#__PURE__*/ gql`
+    query getDummies {
+  dummies {
+    id
+    text
+    createdAt
+    updatedAt
+  }
+}
+    `;
+
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
+
+
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
+
+export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
+  return {
+    getDummies(variables?: GetDummiesVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetDummies> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetDummies>(GetDummiesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getDummies', 'query', variables);
+    }
+  };
+}
+export type Sdk = ReturnType<typeof getSdk>;

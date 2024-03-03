@@ -15,12 +15,6 @@ export class DummyUpdateManyMutationInput {
     @Field(() => Float, {nullable:true})
     float?: number;
 
-    @Field(() => String, {nullable:true})
-    bytes?: Buffer;
-
-    @Field(() => String, {nullable:true})
-    bigInt?: bigint | number;
-
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 

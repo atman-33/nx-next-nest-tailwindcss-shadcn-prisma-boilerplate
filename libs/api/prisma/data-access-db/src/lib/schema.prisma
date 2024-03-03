@@ -31,16 +31,12 @@ generator nestgraphql {
 }
 
 // ---- dummy for mongo db --------------------------------------- //
-// This model is necessary to create IntFilter etc.
 model Dummy {
-    //   id       String    @id
-    id     String  @id @default(auto()) @map("_id") @db.ObjectId
-    text   String?
-    int    Int?
-    float  Float?
-    bytes  Bytes?
-    bigInt BigInt?
-    // json   Json?
+    // id    String  @id
+    id    String  @id @default(auto()) @map("_id") @db.ObjectId
+    text  String?
+    int   Int?
+    float Float?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @default(now()) @updatedAt

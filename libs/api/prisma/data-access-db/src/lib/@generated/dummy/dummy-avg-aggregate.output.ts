@@ -10,7 +10,4 @@ export class DummyAvgAggregate {
 
     @Field(() => Float, {nullable:true})
     float?: number;
-
-    @Field(() => Float, {nullable:true})
-    bigInt?: number;
 }

@@ -18,12 +18,6 @@ export class DummyCountAggregate {
     float!: number;
 
     @Field(() => Int, {nullable:false})
-    bytes!: number;
-
-    @Field(() => Int, {nullable:false})
-    bigInt!: number;
-
-    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})

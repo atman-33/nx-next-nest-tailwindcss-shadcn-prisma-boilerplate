@@ -17,12 +17,6 @@ export class DummyMinAggregateInput {
     float?: true;
 
     @Field(() => Boolean, {nullable:true})
-    bytes?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    bigInt?: true;
-
-    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})

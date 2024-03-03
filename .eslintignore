@@ -5,3 +5,4 @@ node_modules
 
 # Graphqlコードは除く
 /**/*.gql.ts
+/libs/web/data-access-graphql/src/lib/types.ts

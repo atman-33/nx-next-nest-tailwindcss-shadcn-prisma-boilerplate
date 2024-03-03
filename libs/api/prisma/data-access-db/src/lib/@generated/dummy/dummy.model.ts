@@ -19,12 +19,6 @@ export class Dummy {
     @Field(() => Float, {nullable:true})
     float!: number | null;
 
-    @Field(() => String, {nullable:true})
-    bytes!: Buffer | null;
-
-    @Field(() => String, {nullable:true})
-    bigInt!: bigint | null;
-
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
 

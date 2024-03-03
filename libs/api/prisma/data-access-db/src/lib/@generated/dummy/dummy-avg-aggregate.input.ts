@@ -9,7 +9,4 @@ export class DummyAvgAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     float?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    bigInt?: true;
 }
