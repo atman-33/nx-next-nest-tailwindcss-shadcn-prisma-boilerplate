@@ -29,9 +29,6 @@ export class DummyOrderByWithAggregationInput {
     bigInt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    json?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

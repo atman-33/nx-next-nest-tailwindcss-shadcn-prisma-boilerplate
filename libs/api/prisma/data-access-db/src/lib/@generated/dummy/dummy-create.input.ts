@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
 
 @InputType()
 export class DummyCreateInput {
@@ -24,9 +23,6 @@ export class DummyCreateInput {
 
     @Field(() => String, {nullable:true})
     bigInt?: bigint | number;
-
-    @Field(() => GraphQLJSON, {nullable:true})
-    json?: any;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

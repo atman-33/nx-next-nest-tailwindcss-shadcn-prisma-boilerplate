@@ -5,7 +5,6 @@ import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.in
 import { FloatWithAggregatesFilter } from '../prisma/float-with-aggregates-filter.input';
 import { BytesWithAggregatesFilter } from '../prisma/bytes-with-aggregates-filter.input';
 import { BigIntWithAggregatesFilter } from '../prisma/big-int-with-aggregates-filter.input';
-import { JsonWithAggregatesFilter } from '../prisma/json-with-aggregates-filter.input';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 
 @InputType()
@@ -37,9 +36,6 @@ export class DummyScalarWhereWithAggregatesInput {
 
     @Field(() => BigIntWithAggregatesFilter, {nullable:true})
     bigInt?: BigIntWithAggregatesFilter;
-
-    @Field(() => JsonWithAggregatesFilter, {nullable:true})
-    json?: JsonWithAggregatesFilter;
 
     @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
     createdAt?: DateTimeWithAggregatesFilter;

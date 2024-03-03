@@ -24,9 +24,6 @@ export class DummyCountAggregate {
     bigInt!: number;
 
     @Field(() => Int, {nullable:false})
-    json!: number;
-
-    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})

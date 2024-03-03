@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
 import { DummyCountAggregate } from './dummy-count-aggregate.output';
 import { DummyAvgAggregate } from './dummy-avg-aggregate.output';
 import { DummySumAggregate } from './dummy-sum-aggregate.output';
@@ -29,9 +28,6 @@ export class DummyGroupBy {
 
     @Field(() => String, {nullable:true})
     bigInt?: bigint | number;
-
-    @Field(() => GraphQLJSON, {nullable:true})
-    json?: any;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

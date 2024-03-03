@@ -40,7 +40,7 @@ model Dummy {
     float  Float?
     bytes  Bytes?
     bigInt BigInt?
-    json   Json?
+    // json   Json?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @default(now()) @updatedAt

@@ -1,3 +1,7 @@
 node_modules
 
+# コード自動生成ファイルは除く
 /tools/schema-codegen/@generated
+
+# Graphqlコードは除く
+/**/*.gql.ts

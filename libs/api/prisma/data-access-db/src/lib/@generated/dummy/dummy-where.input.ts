@@ -5,7 +5,6 @@ import { IntFilter } from '../prisma/int-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
 import { BytesFilter } from '../prisma/bytes-filter.input';
 import { BigIntFilter } from '../prisma/big-int-filter.input';
-import { JsonFilter } from '../prisma/json-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
@@ -37,9 +36,6 @@ export class DummyWhereInput {
 
     @Field(() => BigIntFilter, {nullable:true})
     bigInt?: BigIntFilter;
-
-    @Field(() => JsonFilter, {nullable:true})
-    json?: JsonFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

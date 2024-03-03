@@ -7,7 +7,6 @@ export enum DummyScalarFieldEnum {
     float = "float",
     bytes = "bytes",
     bigInt = "bigInt",
-    json = "json",
     createdAt = "createdAt",
     updatedAt = "updatedAt"
 }

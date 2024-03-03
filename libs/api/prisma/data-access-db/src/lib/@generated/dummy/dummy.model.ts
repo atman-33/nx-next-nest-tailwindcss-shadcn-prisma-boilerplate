@@ -3,7 +3,6 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
 
 @ObjectType()
 export class Dummy {
@@ -25,9 +24,6 @@ export class Dummy {
 
     @Field(() => String, {nullable:true})
     bigInt!: bigint | null;
-
-    @Field(() => GraphQLJSON, {nullable:true})
-    json!: any | null;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
