@@ -1,3 +1,5 @@
+# Nextjsで、SSGビルド設定
+
 ## ステップ
 
 ### 1. next.config.js をSSGビルド向けに変更
