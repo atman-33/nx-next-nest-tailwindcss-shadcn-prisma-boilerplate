@@ -10,19 +10,42 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/styles/*": ["apps/web/src/styles/*"],
-      "@libs/api/feature-dummies": ["libs/api/feature-dummies/src/index.ts"],
-      "@libs/api/prisma/data-access-db": ["libs/api/prisma/data-access-db/src/index.ts"],
-      "@libs/shared/config": ["libs/shared/config/src/index.ts"],
-      "@libs/web/data-access-graphql": ["libs/web/data-access-graphql/src/index.ts"],
-      "@libs/web/ui-shadcn": ["libs/web/ui-shadcn/src/index.ts"],
-      "@libs/web/ui-shadcn/lib/utils": ["libs/web/ui-shadcn/src/lib/utils.ts"]
+      "@/styles/*": [
+        "apps/web/src/styles/*"
+      ],
+      "@/lib/*": [
+        "apps/web/src/lib/*"
+      ],
+      "@libs/api/feature-dummies": [
+        "libs/api/feature-dummies/src/index.ts"
+      ],
+      "@libs/api/prisma/data-access-db": [
+        "libs/api/prisma/data-access-db/src/index.ts"
+      ],
+      "@libs/shared/config": [
+        "libs/shared/config/src/index.ts"
+      ],
+      "@libs/web/data-access-graphql": [
+        "libs/web/data-access-graphql/src/index.ts"
+      ],
+      "@libs/web/ui-shadcn": [
+        "libs/web/ui-shadcn/src/index.ts"
+      ],
+      "@libs/web/ui-shadcn/lib/utils": [
+        "libs/web/ui-shadcn/src/lib/utils.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

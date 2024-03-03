@@ -3,6 +3,6 @@
 - [x] graphql サーバー セットアップ
 - [x] schema-codegen を ts に変更
 - [x] shadcn-ui セットアップ
+- [x] graphql-codegen セットアップ
 - [ ] recoil セットアップ
-- [ ] graphql-codegen セットアップ
 - [ ] graphql x recoil のサンプル画面作成

@@ -131,3 +131,53 @@ export const getGraphqlClient = (
 export * from './lib/get-graphql-client';
 export * from './lib/types';
 ```
+
+### 8. graphql-client を作成
+
+`apps/web/src/lib/graphql-client.ts`
+
+```ts
+import { webEnv } from '@libs/shared/config';
+import { getGraphqlClient } from '@libs/web/data-access-graphql';
+
+if (!webEnv.NEXT_PUBLIC_API_GQL_URL) {
+  throw new Error('NEXT_PUBLIC_API_GQL_URL is not defined');
+}
+
+export const gql = getGraphqlClient(webEnv.NEXT_PUBLIC_API_GQL_URL);
+```
+
+### 9. エイリアスパスを設定
+
+`tsconfig.base.json`
+
+```json
+    "paths": {
+      ...,
+      "@/lib/*": [
+        "apps/web/src/lib/*"
+      ],
+```
+
+## 利用例
+
+e.g. Nextjs. page コンポーネント
+
+```ts
+'use client';
+
+/* eslint-disable @nx/enforce-module-boundaries */
+import { gql } from '@/lib/graphql-client';
+import { useEffect } from 'react';
+
+const Page = () => {
+  useEffect(() => {
+    const fetch = async () => {
+      const dummies = await gql.getDummies();
+      console.log(dummies);
+    };
+
+    fetch();
+  });
+  ...
+```

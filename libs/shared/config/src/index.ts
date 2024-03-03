@@ -1,1 +1,1 @@
-export * from './lib/env';
+export { apiEnv, webEnv } from './lib/env';

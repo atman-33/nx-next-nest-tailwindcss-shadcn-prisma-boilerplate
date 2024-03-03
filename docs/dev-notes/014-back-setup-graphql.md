@@ -46,7 +46,7 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 
-import { env } from '@libs/shared/config';
+import { apiEnv } from '@libs/shared/config';
 import cookieParser from 'cookie-parser';
 
 async function bootstrap() {
@@ -60,14 +60,14 @@ async function bootstrap() {
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
   app.enableCors({
     origin: [
-      env.PRODUCTION_ORIGIN || 'http://localhost:4200',
+      apiEnv.PRODUCTION_ORIGIN || 'http://localhost:4200',
       'http://localhost:3333',
       'http://localhost:3000'
     ],
     credentials: true
   });
 
-  const port = env.API_PORT || 3000;
+  const port = apiEnv.API_PORT || 3000;
   await app.listen(port);
   Logger.log(`🚀 Application playground is running on: http://localhost:${port}/api/graphql`);
 }
