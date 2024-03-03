@@ -20,6 +20,8 @@ nx g @nx/next:app web --tags "scope:web"
 ✔ What should be the project name and where should it be generated? · web @ apps/web
 ```
 
+> 自動生成される`apps/web/src/app/page.module.css` は必要ないため、削除してOK
+
 ## 3. nx コマンドを project.json に追加
 
 > 本来、プロジェクト生成コマンド時にproject.json の target が追加されるが、  
