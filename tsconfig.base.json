@@ -18,11 +18,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/styles/*": [
-        "apps/web/src/styles/*"
+      "@/components/*": [
+        "apps/web/src/components/*"
       ],
       "@/lib/*": [
         "apps/web/src/lib/*"
+      ],
+      "@/styles/*": [
+        "apps/web/src/styles/*"
       ],
       "@libs/api/feature-dummies": [
         "libs/api/feature-dummies/src/index.ts"
