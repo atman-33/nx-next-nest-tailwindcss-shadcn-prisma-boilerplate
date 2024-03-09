@@ -1,4 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
+import RecoilProvider from '@/providers/RecoilProvider';
 import '@/styles/global.css';
 
 export const metadata = {
@@ -10,7 +11,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body>
-        <div className="m-8">{children}</div>
+        <RecoilProvider>
+          <div>{children}</div>
+        </RecoilProvider>
       </body>
     </html>
   );

@@ -27,6 +27,9 @@
       "@/styles/*": [
         "apps/web/src/styles/*"
       ],
+      "@/providers/*": [
+        "apps/web/src/providers/*"
+      ],
       "@libs/api/feature-dummies": [
         "libs/api/feature-dummies/src/index.ts"
       ],
