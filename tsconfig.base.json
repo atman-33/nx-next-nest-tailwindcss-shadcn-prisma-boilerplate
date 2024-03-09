@@ -21,6 +21,9 @@
       "@/components/*": [
         "apps/web/src/components/*"
       ],
+      "@/features/*": [
+        "apps/web/src/features/*"
+      ],
       "@/lib/*": [
         "apps/web/src/lib/*"
       ],

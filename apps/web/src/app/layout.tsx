@@ -1,5 +1,6 @@
-/* eslint-disable @nx/enforce-module-boundaries */
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import RecoilProvider from '@/providers/RecoilProvider';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import '@/styles/global.css';
 
 export const metadata = {
