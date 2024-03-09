@@ -6,15 +6,13 @@ import { Button } from '@libs/web/ui-shadcn';
 
 const Page = () => {
   return (
-    <div>
+    <div className="flex flex-col space-y-4 m-8">
       <h1 className="text-3xl font-bold underline">
         Nx Nextjs x Nestjs Tailwindcss Shadcn-ui Prisma Boilerplate{' '}
       </h1>
 
       <Link href="/debug">
-        <Button variant="default" className="m-4">
-          Debug Room
-        </Button>
+        <Button variant="default">Debug Room</Button>
       </Link>
     </div>
   );
