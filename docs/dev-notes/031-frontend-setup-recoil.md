@@ -25,6 +25,8 @@ npm i recoil-persist
 `apps/web/src/providers/RecoilProvider.tsx`
 
 ```tsx
+'use client';
+
 import { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
 
