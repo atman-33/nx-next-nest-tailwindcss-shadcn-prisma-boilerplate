@@ -9,9 +9,11 @@ const Page = () => {
     <div>
       {debugPages.map((page) => {
         return (
-          <div key={page} className="my-4 rounded-md bg-primary/20 p-2">
-            <Link href={page}>{page}</Link>
-          </div>
+          <Link href={page} key={page}>
+            <div key={page} className="my-4 rounded-md bg-primary/20 p-2">
+              {page}
+            </div>
+          </Link>
         );
       })}
     </div>

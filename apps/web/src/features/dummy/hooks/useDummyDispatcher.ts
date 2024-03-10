@@ -19,15 +19,16 @@ const useDummyDispatcher = () => {
   /**
    * データを再読み込みする。
    */
-  const reloadDummies = useRecoilCallback(
+  const reloadDummies: () => Promise<Dummy[]> = useRecoilCallback(
     ({ set }) =>
       async () => {
-        const dummies = (await gql.getDummies()) as unknown as Dummy[];
-        dummies?.map((data) => set(dummiesState(data.id), data));
+        const res = await gql.getDummies();
+        res.dummies?.map((data) => set(dummiesState(data.id), data));
         set(
           dummyIdsState,
-          dummies.map((data) => data.id)
+          res.dummies.map((data) => data.id)
         );
+        return res.dummies;
       },
     []
   );
@@ -35,28 +36,36 @@ const useDummyDispatcher = () => {
   /**
    * データを新規作成する。
    */
-  const createDummy = useRecoilCallback(
+  const createDummy: ({ data }: { data: DummyCreateInput }) => Promise<Dummy> = useRecoilCallback(
     ({ set }) =>
-      async (data: DummyCreateInput) => {
-        const newDummy = (await gql.createDummy({ data: data })) as unknown as Dummy;
-        set(dummiesState(newDummy.id), newDummy);
+      async ({ data }: { data: DummyCreateInput }) => {
+        const res = await gql.createDummy({ data: data });
+        set(dummiesState(res.createDummy.id), res.createDummy);
 
-        // 新規作成した場合はIdsStateに、idを追加
-        if (!ids.includes(newDummy.id)) {
-          set(dummyIdsState, [...ids, newDummy.id]);
+        if (!ids.includes(res.createDummy.id)) {
+          set(dummyIdsState, [...ids, res.createDummy.id]);
         }
+
+        return res.createDummy;
       },
-    []
+    [ids]
   );
 
   /**
    * データを更新する。
    */
-  const updateDummy = useRecoilCallback(
+  const updateDummy: ({
+    data,
+    where
+  }: {
+    data: DummyUpdateInput;
+    where: DummyWhereUniqueInput;
+  }) => Promise<Dummy> = useRecoilCallback(
     ({ set }) =>
-      async (data: DummyUpdateInput, where: DummyWhereUniqueInput) => {
-        const dummy = (await gql.updateDummy({ where: where, data: data })) as unknown as Dummy;
-        set(dummiesState(dummy.id), dummy);
+      async ({ data, where }: { data: DummyUpdateInput; where: DummyWhereUniqueInput }) => {
+        const res = await gql.updateDummy({ where: where, data: data });
+        set(dummiesState(res.updateDummy.id), res.updateDummy);
+        return res.updateDummy;
       },
     []
   );
@@ -64,20 +73,22 @@ const useDummyDispatcher = () => {
   /**
    * データを削除する。
    */
-  const deleteDummy = useRecoilCallback(
-    ({ set }) =>
-      async (where: DummyWhereUniqueInput) => {
-        const dummy = (await gql.deleteDummy({ where: where })) as unknown as Dummy;
-        set(dummiesState(dummy.id), null);
-        set(
-          dummyIdsState,
-          ids.filter((id) => {
-            return id !== where.id;
-          })
-        );
-      },
-    []
-  );
+  const deleteDummy: ({ where }: { where: DummyWhereUniqueInput }) => Promise<string> =
+    useRecoilCallback(
+      ({ set }) =>
+        async ({ where }: { where: DummyWhereUniqueInput }) => {
+          const res = await gql.deleteDummy({ where: where });
+          set(dummiesState(res.deleteDummy.id), null);
+          set(
+            dummyIdsState,
+            ids.filter((id) => {
+              return id !== res.deleteDummy.id;
+            })
+          );
+          return res.deleteDummy.id;
+        },
+      [ids]
+    );
 
   return {
     reloadDummies,

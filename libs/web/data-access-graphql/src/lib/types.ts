@@ -206,14 +206,14 @@ export type StringFilter = {
 export type GetDummiesVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetDummies = { __typename?: 'Query', dummies: Array<{ __typename?: 'Dummy', id: string, text?: string | null, createdAt: any, updatedAt: any }> };
+export type GetDummies = { __typename?: 'Query', dummies: Array<{ __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any }> };
 
 export type CreateDummyVariables = Exact<{
   data: DummyCreateInput;
 }>;
 
 
-export type CreateDummy = { __typename?: 'Mutation', createDummy: { __typename?: 'Dummy', id: string, text?: string | null, createdAt: any, updatedAt: any } };
+export type CreateDummy = { __typename?: 'Mutation', createDummy: { __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any } };
 
 export type UpdateDummyVariables = Exact<{
   data: DummyUpdateInput;
@@ -221,7 +221,7 @@ export type UpdateDummyVariables = Exact<{
 }>;
 
 
-export type UpdateDummy = { __typename?: 'Mutation', updateDummy: { __typename?: 'Dummy', id: string, text?: string | null, createdAt: any, updatedAt: any } };
+export type UpdateDummy = { __typename?: 'Mutation', updateDummy: { __typename?: 'Dummy', id: string, text?: string | null, int?: number | null, createdAt: any, updatedAt: any } };
 
 export type DeleteDummyVariables = Exact<{
   where: DummyWhereUniqueInput;
@@ -241,6 +241,7 @@ export const GetDummiesDocument = /*#__PURE__*/ gql`
   dummies {
     id
     text
+    int
     createdAt
     updatedAt
   }
@@ -251,6 +252,7 @@ export const CreateDummyDocument = /*#__PURE__*/ gql`
   createDummy(data: $data) {
     id
     text
+    int
     createdAt
     updatedAt
   }
@@ -261,6 +263,7 @@ export const UpdateDummyDocument = /*#__PURE__*/ gql`
   updateDummy(data: $data, where: $where) {
     id
     text
+    int
     createdAt
     updatedAt
   }
