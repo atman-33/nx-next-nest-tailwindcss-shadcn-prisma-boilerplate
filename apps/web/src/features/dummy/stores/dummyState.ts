@@ -13,7 +13,8 @@ const initialDataState = atom<Dummy[] | null>({
     key: 'dummy/initialDataState/default',
     get: async () => {
       try {
-        return (await gql.getDummies()) as unknown as Dummy[];
+        const res = await gql.getDummies();
+        return res.dummies;
       } catch (error) {
         if (error instanceof Error) {
           console.log(error);
@@ -31,14 +32,9 @@ export const dummyIdsState = atom<string[]>({
   key: 'dummy/dummyIdsState',
   default: selector({
     key: 'dummy/dummyIdsState/default',
-    get: async ({ get }) => {
-      // TODO: .map が function ではないとエラーが発生する。
-      const data = await get(initialDataState);
-      console.log(data);
-      if (data) {
-        return data.map((d) => d.id);
-      }
-      return [];
+    get: ({ get }) => {
+      const items = get(initialDataState);
+      return items?.map((item) => item.id) ?? [];
     }
   })
 });
@@ -53,7 +49,8 @@ export const dummiesState = atomFamily<Dummy | null, string>({
     get:
       (id: string) =>
       ({ get }) => {
-        return get(initialDataState)?.find((d) => d.id === id) ?? null;
+        const items = get(initialDataState);
+        return items?.find((d) => d.id === id) ?? null;
       }
   })
 });
