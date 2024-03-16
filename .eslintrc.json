@@ -43,6 +43,21 @@
               }
             ]
           }
+        ],
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              "@/features/*/*"
+            ]
+          }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": [
+          "warn",
+          {
+            "additionalHooks": "useRecoilCallback"
+          }
         ]
       }
     },

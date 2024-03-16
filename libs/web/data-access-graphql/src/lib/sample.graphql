@@ -1,4 +1,4 @@
-query getDummies {
+query queryExample {
   dummies {
     id
     text

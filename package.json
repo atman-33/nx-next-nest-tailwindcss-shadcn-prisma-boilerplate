@@ -29,6 +29,7 @@
   },
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@nestjs/apollo": "^12.1.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^3.2.0",
@@ -39,6 +40,7 @@
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/serve-static": "^4.0.1",
     "@prisma/client": "^5.10.2",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "apollo-server-express": "^3.13.0",
     "axios": "^1.6.0",
@@ -58,11 +60,14 @@
     "passport-local": "^1.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.51.0",
+    "recoil": "^0.7.7",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",

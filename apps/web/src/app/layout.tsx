@@ -1,4 +1,6 @@
-/* eslint-disable @nx/enforce-module-boundaries */
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import RecoilProvider from '@/providers/RecoilProvider';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import '@/styles/global.css';
 
 export const metadata = {
@@ -9,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <RecoilProvider>
+          <div>{children}</div>
+        </RecoilProvider>
+      </body>
     </html>
   );
 }
